@@ -3,127 +3,299 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🐳 Docker Demo App</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .card {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 16px;
-      padding: 2.5rem 3rem;
-      max-width: 560px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    }
-
-    .whale { font-size: 5rem; margin-bottom: 1rem; animation: bob 2s ease-in-out infinite; }
-    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-    h1 { font-size: 1.8rem; margin-bottom: 0.4rem; color: #58a6ff; }
-    p.subtitle { color: #8b949e; margin-bottom: 2rem; font-size: 0.95rem; }
-
-    .info-box {
-      background: #0d1117;
-      border: 1px solid #30363d;
-      border-radius: 10px;
-      padding: 1.2rem;
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-    .info-box p { font-size: 0.9rem; color: #8b949e; margin-bottom: 0.6rem; }
-    .info-box span { color: #3fb950; font-weight: 600; }
-
-    .counter-section { margin-bottom: 1.8rem; }
-    .counter-section p { color: #8b949e; margin-bottom: 0.6rem; font-size: 0.9rem; }
-    #count {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #58a6ff;
-    }
-
-    .btn {
-      background: #238636;
-      color: white;
-      border: none;
-      padding: 0.7rem 1.8rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin: 0.3rem;
-    }
-    .btn:hover { background: #2ea043; }
-    .btn.secondary { background: #21262d; border: 1px solid #30363d; }
-    .btn.secondary:hover { background: #30363d; }
-
-    .badge {
-      display: inline-block;
-      background: #1f6feb33;
-      border: 1px solid #1f6feb;
-      color: #58a6ff;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      margin-top: 1.5rem;
-    }
-  </style>
+  <title>Game of Thrones — The World of Westeros</title>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="card">
-    <div class="whale">🐳</div>
-    <h1>Hello from Docker!</h1>
-    <p class="subtitle">This app is running inside a container 🎉</p>
 
-    <div class="info-box">
-      <p>📦 Container running since: <span id="startTime">—</span></p>
-      <p>🌐 Served by: <span>Nginx (inside Docker)</span></p>
-      <p>📂 Port mapped: <span>8080 → 80</span></p>
+  <!-- Particle canvas for fireflies/snow -->
+  <canvas id="particles"></canvas>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-logo">⚔️ <span>Westeros</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#houses">Houses</a></li>
+      <li><a href="#map">The Map</a></li>
+      <li><a href="#characters">Characters</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+    <div class="nav-toggle" onclick="toggleNav()">☰</div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-bg"></div>
+    <div class="fog fog1"></div>
+    <div class="fog fog2"></div>
+    <div class="hero-content">
+      <p class="hero-tagline">When you play the</p>
+      <h1 class="hero-title">Game of Thrones</h1>
+      <p class="hero-sub">You win... or you die.</p>
+      <div class="hero-dragon">🐉</div>
+      <a href="#houses" class="hero-btn">Enter Westeros</a>
     </div>
+    <div class="scroll-indicator">↓</div>
+  </section>
 
-    <div class="counter-section">
-      <p>🖱️ Button click counter (stored in the browser)</p>
-      <div id="count">0</div>
+  <!-- HOUSES -->
+  <section id="houses" class="houses-section">
+    <h2 class="section-title">The Great Houses</h2>
+    <p class="section-sub">Blood runs thicker than water in the Seven Kingdoms</p>
+    <div class="houses-grid">
+
+      <div class="house-card" data-house="stark">
+        <div class="house-card-inner">
+          <div class="house-card-front">
+            <div class="house-sigil">🐺</div>
+            <h3>House Stark</h3>
+            <p class="house-words">"Winter is Coming"</p>
+          </div>
+          <div class="house-card-back">
+            <h3>House Stark</h3>
+            <p>Lords of Winterfell, Wardens of the North. Known for honor, loyalty, and resilience in the harshest winters.</p>
+            <span class="house-region">📍 The North</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="house-card" data-house="lannister">
+        <div class="house-card-inner">
+          <div class="house-card-front">
+            <div class="house-sigil">🦁</div>
+            <h3>House Lannister</h3>
+            <p class="house-words">"Hear Me Roar"</p>
+          </div>
+          <div class="house-card-back">
+            <h3>House Lannister</h3>
+            <p>Lords of Casterly Rock, the wealthiest family in Westeros. Gold and cunning are their greatest weapons.</p>
+            <span class="house-region">📍 The Westerlands</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="house-card" data-house="targaryen">
+        <div class="house-card-inner">
+          <div class="house-card-front">
+            <div class="house-sigil">🐉</div>
+            <h3>House Targaryen</h3>
+            <p class="house-words">"Fire and Blood"</p>
+          </div>
+          <div class="house-card-back">
+            <h3>House Targaryen</h3>
+            <p>Dragonlords of Old Valyria. Conquerors of Westeros, bonded to dragons, ruling from the Iron Throne.</p>
+            <span class="house-region">📍 Dragonstone</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="house-card" data-house="baratheon">
+        <div class="house-card-inner">
+          <div class="house-card-front">
+            <div class="house-sigil">🦌</div>
+            <h3>House Baratheon</h3>
+            <p class="house-words">"Ours is the Fury"</p>
+          </div>
+          <div class="house-card-back">
+            <h3>House Baratheon</h3>
+            <p>Rulers of Storm's End and Kings Landing. Born of storm and fury, they rose through rebellion.</p>
+            <span class="house-region">📍 The Stormlands</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="house-card" data-house="greyjoy">
+        <div class="house-card-inner">
+          <div class="house-card-front">
+            <div class="house-sigil">🐙</div>
+            <h3>House Greyjoy</h3>
+            <p class="house-words">"We Do Not Sow"</p>
+          </div>
+          <div class="house-card-back">
+            <h3>House Greyjoy</h3>
+            <p>Lords of the Iron Islands, fierce reavers of the sea. They take what is theirs with iron and fire.</p>
+            <span class="house-region">📍 Iron Islands</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="house-card" data-house="tyrell">
+        <div class="house-card-inner">
+          <div class="house-card-front">
+            <div class="house-sigil">🌹</div>
+            <h3>House Tyrell</h3>
+            <p class="house-words">"Growing Strong"</p>
+          </div>
+          <div class="house-card-back">
+            <h3>House Tyrell</h3>
+            <p>Lords of Highgarden, the most fertile land in Westeros. Wealth, flowers, and political cunning define them.</p>
+            <span class="house-region">📍 The Reach</span>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <div>
-      <button class="btn" onclick="increment()">Click Me! 🚀</button>
-      <button class="btn secondary" onclick="reset()">Reset</button>
+  <!-- MAP -->
+  <section id="map" class="map-section">
+    <h2 class="section-title">The Known World</h2>
+    <p class="section-sub">From the Wall to the Summer Sea</p>
+    <div class="map-container">
+      <div class="map-grid">
+        <div class="map-region north">
+          <span class="map-icon">❄️</span>
+          <h4>The North</h4>
+          <p>Winterfell · The Wall · Beyond</p>
+        </div>
+        <div class="map-region iron-islands">
+          <span class="map-icon">⚓</span>
+          <h4>Iron Islands</h4>
+          <p>Pyke · Old Wyk · Great Wyk</p>
+        </div>
+        <div class="map-region riverlands">
+          <span class="map-icon">🌊</span>
+          <h4>The Riverlands</h4>
+          <p>Riverrun · The Twins · Harrenhal</p>
+        </div>
+        <div class="map-region kings-landing">
+          <span class="map-icon">👑</span>
+          <h4>King's Landing</h4>
+          <p>The Iron Throne · The Red Keep</p>
+        </div>
+        <div class="map-region vale">
+          <span class="map-icon">🦅</span>
+          <h4>The Vale</h4>
+          <p>The Eyrie · Gulltown · The Gates</p>
+        </div>
+        <div class="map-region westerlands">
+          <span class="map-icon">🏔️</span>
+          <h4>The Westerlands</h4>
+          <p>Casterly Rock · Lannisport</p>
+        </div>
+        <div class="map-region reach">
+          <span class="map-icon">🌸</span>
+          <h4>The Reach</h4>
+          <p>Highgarden · Oldtown · Horn Hill</p>
+        </div>
+        <div class="map-region stormlands">
+          <span class="map-icon">⚡</span>
+          <h4>The Stormlands</h4>
+          <p>Storm's End · Cape Wrath</p>
+        </div>
+        <div class="map-region dorne">
+          <span class="map-icon">☀️</span>
+          <h4>Dorne</h4>
+          <p>Sunspear · The Red Mountains</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="badge">✅ Container is healthy and running</div>
-  </div>
+  <!-- CHARACTERS -->
+  <section id="characters" class="characters-section">
+    <h2 class="section-title">Legendary Characters</h2>
+    <p class="section-sub">Heroes, villains, and everything in between</p>
+    <div class="chars-grid">
+      <div class="char-card">
+        <div class="char-avatar">⚔️</div>
+        <h3>Jon Snow</h3>
+        <p class="char-title">King in the North</p>
+        <p class="char-desc">A bastard born of ice and fire, destined to unite the realm against the Long Night.</p>
+        <div class="char-bar"><span style="width:90%"></span></div>
+        <small>Honor ████████░░</small>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar">🐉</div>
+        <h3>Daenerys Targaryen</h3>
+        <p class="char-title">Mother of Dragons</p>
+        <p class="char-desc">The Unburnt, Breaker of Chains, rightful heir to the Iron Throne with three dragons.</p>
+        <div class="char-bar"><span style="width:95%"></span></div>
+        <small>Power █████████░</small>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar">🦁</div>
+        <h3>Tyrion Lannister</h3>
+        <p class="char-title">The Imp · Hand of the Queen</p>
+        <p class="char-desc">The cleverest man in Westeros. He drinks and he knows things — and that has kept him alive.</p>
+        <div class="char-bar"><span style="width:100%"></span></div>
+        <small>Wit ██████████</small>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar">🐺</div>
+        <h3>Arya Stark</h3>
+        <p class="char-title">No One · Faceless Man</p>
+        <p class="char-desc">A girl has a list. Trained by the Faceless Men, she is death itself given human form.</p>
+        <div class="char-bar"><span style="width:88%"></span></div>
+        <small>Stealth ████████░░</small>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar">🗡️</div>
+        <h3>Cersei Lannister</h3>
+        <p class="char-title">Queen of the Seven Kingdoms</p>
+        <p class="char-desc">When she played the game, she played it better than anyone. Power was her only love.</p>
+        <div class="char-bar"><span style="width:85%"></span></div>
+        <small>Cunning ████████░░</small>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar">🦅</div>
+        <h3>Ned Stark</h3>
+        <p class="char-title">Lord of Winterfell</p>
+        <p class="char-desc">The most honorable man in Westeros. In a world of liars, his honesty was his downfall.</p>
+        <div class="char-bar"><span style="width:100%"></span></div>
+        <small>Honor ██████████</small>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    // Show when the page was first loaded
-    document.getElementById('startTime').textContent =
-      new Date().toLocaleTimeString();
+  <!-- GALLERY -->
+  <section id="gallery" class="gallery-section">
+    <h2 class="section-title">Gallery of Westeros</h2>
+    <p class="section-sub">The beauty and brutality of the Seven Kingdoms</p>
+    <div class="gallery-grid">
+      <div class="gallery-item g1">
+        <div class="gallery-overlay"><h4>The Wall</h4><p>700ft of ice and ancient magic</p></div>
+      </div>
+      <div class="gallery-item g2">
+        <div class="gallery-overlay"><h4>Dragonstone</h4><p>Born amidst salt and smoke</p></div>
+      </div>
+      <div class="gallery-item g3">
+        <div class="gallery-overlay"><h4>The Iron Throne</h4><p>A thousand swords, one ruler</p></div>
+      </div>
+      <div class="gallery-item g4">
+        <div class="gallery-overlay"><h4>Winterfell</h4><p>The heart of the North</p></div>
+      </div>
+      <div class="gallery-item g5">
+        <div class="gallery-overlay"><h4>King's Landing</h4><p>City of a million souls</p></div>
+      </div>
+      <div class="gallery-item g6">
+        <div class="gallery-overlay"><h4>Beyond the Wall</h4><p>Where the dead walk</p></div>
+      </div>
+    </div>
+  </section>
 
-    // Simple click counter
-    let count = 0;
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="quote-container">
+      <blockquote>
+        <p>"The man who passes the sentence should swing the sword."</p>
+        <cite>— Eddard Stark</cite>
+      </blockquote>
+    </div>
+  </section>
 
-    function increment() {
-      count++;
-      document.getElementById('count').textContent = count;
-    }
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">⚔️ Westeros</div>
+      <p>The Seven Kingdoms await. Winter is Coming.</p>
+      <div class="footer-sigils">🐺 🦁 🐉 🦌 🐙 🌹 🦅</div>
+      <p class="footer-copy">© 2024 Game of Thrones Fan Site · Built with 🔥 and ❄️</p>
+    </div>
+  </footer>
 
-    function reset() {
-      count = 0;
-      document.getElementById('count').textContent = count;
-    }
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
