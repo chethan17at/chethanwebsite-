@@ -49,14 +49,18 @@
       <div class="house-card" data-house="stark">
         <div class="house-card-inner">
           <div class="house-card-front">
-            <div class="house-sigil">🐺</div>
-            <h3>House Stark</h3>
-            <p class="house-words">"Winter is Coming"</p>
+            <img class="house-bg-img" src="https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg" alt="House Stark"/>
+            <div class="house-front-content">
+              <div class="house-sigil">🐺</div>
+              <h3>House Stark</h3>
+              <p class="house-words">"Winter is Coming"</p>
+            </div>
           </div>
           <div class="house-card-back">
             <h3>House Stark</h3>
             <p>Lords of Winterfell, Wardens of the North. Known for honor, loyalty, and resilience in the harshest winters.</p>
-            <span class="house-region">📍 The North</span>
+            <p class="house-cast">Sean Bean · Kit Harington · Sophie Turner · Maisie Williams</p>
+            <span class="house-region">📍 The North · Winterfell</span>
           </div>
         </div>
       </div>
@@ -199,54 +203,142 @@
     <h2 class="section-title">Legendary Characters</h2>
     <p class="section-sub">Heroes, villains, and everything in between</p>
     <div class="chars-grid">
+
       <div class="char-card">
-        <div class="char-avatar">⚔️</div>
+        <div class="char-photo">
+          <img src="https://image.tmdb.org/t/p/w300/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg"
+               alt="Kit Harington as Jon Snow"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="char-fallback" style="display:none">⚔️</div>
+        </div>
         <h3>Jon Snow</h3>
+        <p class="char-actor">Kit Harington</p>
         <p class="char-title">King in the North</p>
         <p class="char-desc">A bastard born of ice and fire, destined to unite the realm against the Long Night.</p>
         <div class="char-bar"><span style="width:90%"></span></div>
         <small>Honor ████████░░</small>
       </div>
+
       <div class="char-card">
-        <div class="char-avatar">🐉</div>
+        <div class="char-photo">
+          <img src="https://image.tmdb.org/t/p/w300/mn0JnfKsFATPBCvTHxUvVVxAMem.jpg"
+               alt="Emilia Clarke as Daenerys Targaryen"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="char-fallback" style="display:none">🐉</div>
+        </div>
         <h3>Daenerys Targaryen</h3>
+        <p class="char-actor">Emilia Clarke</p>
         <p class="char-title">Mother of Dragons</p>
         <p class="char-desc">The Unburnt, Breaker of Chains, rightful heir to the Iron Throne with three dragons.</p>
         <div class="char-bar"><span style="width:95%"></span></div>
         <small>Power █████████░</small>
       </div>
+
       <div class="char-card">
-        <div class="char-avatar">🦁</div>
+        <div class="char-photo">
+          <img src="https://image.tmdb.org/t/p/w300/9bPQpBd3A7bngBjXCBXBCvnf9F0.jpg"
+               alt="Peter Dinklage as Tyrion Lannister"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="char-fallback" style="display:none">🦁</div>
+        </div>
         <h3>Tyrion Lannister</h3>
+        <p class="char-actor">Peter Dinklage</p>
         <p class="char-title">The Imp · Hand of the Queen</p>
         <p class="char-desc">The cleverest man in Westeros. He drinks and he knows things — and that has kept him alive.</p>
         <div class="char-bar"><span style="width:100%"></span></div>
         <small>Wit ██████████</small>
       </div>
+
       <div class="char-card">
-        <div class="char-avatar">🐺</div>
+        <div class="char-photo">
+          <img src="https://image.tmdb.org/t/p/w300/x5o8cLZfEXMoZczTYWLrUo1P7UJ.jpg"
+               alt="Maisie Williams as Arya Stark"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="char-fallback" style="display:none">🗡️</div>
+        </div>
         <h3>Arya Stark</h3>
+        <p class="char-actor">Maisie Williams</p>
         <p class="char-title">No One · Faceless Man</p>
         <p class="char-desc">A girl has a list. Trained by the Faceless Men, she is death itself given human form.</p>
         <div class="char-bar"><span style="width:88%"></span></div>
         <small>Stealth ████████░░</small>
       </div>
+
       <div class="char-card">
-        <div class="char-avatar">🗡️</div>
+        <div class="char-photo">
+          <img src="https://image.tmdb.org/t/p/w300/3Sg5gW6SiJBQJEWxfSGJxkxGBxA.jpg"
+               alt="Lena Headey as Cersei Lannister"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="char-fallback" style="display:none">👑</div>
+        </div>
         <h3>Cersei Lannister</h3>
+        <p class="char-actor">Lena Headey</p>
         <p class="char-title">Queen of the Seven Kingdoms</p>
         <p class="char-desc">When she played the game, she played it better than anyone. Power was her only love.</p>
         <div class="char-bar"><span style="width:85%"></span></div>
         <small>Cunning ████████░░</small>
       </div>
+
       <div class="char-card">
-        <div class="char-avatar">🦅</div>
-        <h3>Ned Stark</h3>
-        <p class="char-title">Lord of Winterfell</p>
+        <div class="char-photo">
+          <img src="https://image.tmdb.org/t/p/w300/2RBPvNnkDKjJe5bJQPzSrEIAMXq.jpg"
+               alt="Sean Bean as Ned Stark"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="char-fallback" style="display:none">🐺</div>
+        </div>
+        <h3>Eddard Stark</h3>
+        <p class="char-actor">Sean Bean</p>
+        <p class="char-title">Lord of Winterfell · Warden of the North</p>
         <p class="char-desc">The most honorable man in Westeros. In a world of liars, his honesty was his downfall.</p>
         <div class="char-bar"><span style="width:100%"></span></div>
         <small>Honor ██████████</small>
       </div>
+
+      <div class="char-card">
+        <div class="char-photo">
+          <img src="https://image.tmdb.org/t/p/w300/pWKOSpExYVMGVjGF4YRjZkGZq8H.jpg"
+               alt="Sophie Turner as Sansa Stark"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="char-fallback" style="display:none">🌹</div>
+        </div>
+        <h3>Sansa Stark</h3>
+        <p class="char-actor">Sophie Turner</p>
+        <p class="char-title">Queen in the North</p>
+        <p class="char-desc">From a naive girl dreaming of knights to the shrewdest ruler in Westeros. She survived them all.</p>
+        <div class="char-bar"><span style="width:87%"></span></div>
+        <small>Resilience ████████░░</small>
+      </div>
+
+      <div class="char-card">
+        <div class="char-photo">
+          <img src="https://image.tmdb.org/t/p/w300/gVjKbAJBCCCBqi2tWNtmfDBhSpc.jpg"
+               alt="Nikolaj Coster-Waldau as Jaime Lannister"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="char-fallback" style="display:none">⚔️</div>
+        </div>
+        <h3>Jaime Lannister</h3>
+        <p class="char-actor">Nikolaj Coster-Waldau</p>
+        <p class="char-title">Kingslayer · Knight of the Kingsguard</p>
+        <p class="char-desc">Called the Kingslayer, yet he slew a king to save a million lives. The most complex knight in Westeros.</p>
+        <div class="char-bar"><span style="width:92%"></span></div>
+        <small>Combat █████████░</small>
+      </div>
+
+      <div class="char-card">
+        <div class="char-photo">
+          <img src="https://image.tmdb.org/t/p/w300/hMXMBPwR5zGwVCTNmDvJJBIJFnb.jpg"
+               alt="Iwan Rheon as Ramsay Bolton"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="char-fallback" style="display:none">☠️</div>
+        </div>
+        <h3>Ramsay Bolton</h3>
+        <p class="char-actor">Iwan Rheon</p>
+        <p class="char-title">Lord of Winterfell · Bastard of Bolton</p>
+        <p class="char-desc">Pure cruelty given human form. The most feared villain of the North, defeated at the Battle of the Bastards.</p>
+        <div class="char-bar"><span style="width:78%"></span></div>
+        <small>Cruelty ███████░░░</small>
+      </div>
+
     </div>
   </section>
 
