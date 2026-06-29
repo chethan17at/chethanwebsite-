@@ -3,464 +3,522 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Game of Thrones — The Official Fan Experience</title>
+  <title>Game of Thrones — The Seven Kingdoms</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
-<body>
+<body class="loading">
 
-  <!-- NAVBAR -->
+  <!-- LOADING SCREEN -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Game_of_Thrones_2011_logo.svg/400px-Game_of_Thrones_2011_logo.svg.png" alt="GOT" class="loader-logo"/>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text">The Night is Dark and Full of Terrors</p>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- NAV -->
   <header class="header" id="header">
     <div class="header-inner">
-      <a href="#" class="brand">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Game_of_Thrones_2011_logo.svg/512px-Game_of_Thrones_2011_logo.svg.png"
-             alt="Game of Thrones" class="brand-logo"/>
+      <a href="#hero" class="brand">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Game_of_Thrones_2011_logo.svg/300px-Game_of_Thrones_2011_logo.svg.png" alt="GOT" class="brand-logo"/>
       </a>
-      <nav class="nav">
-        <a href="#about">The Show</a>
-        <a href="#houses">Houses</a>
-        <a href="#characters">Characters</a>
-        <a href="#seasons">Seasons</a>
-        <a href="#gallery">Gallery</a>
+      <nav class="nav" id="nav">
+        <a href="#story" class="nav-link">The Story</a>
+        <a href="#houses" class="nav-link">Houses</a>
+        <a href="#characters" class="nav-link">Characters</a>
+        <a href="#seasons" class="nav-link">Seasons</a>
+        <a href="#world" class="nav-link">The World</a>
       </nav>
-      <button class="nav-toggle" aria-label="menu">&#9776;</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ═══════════════════════════════════════════════
+       HERO — FULLSCREEN CINEMATIC
+  ═══════════════════════════════════════════════ -->
   <section class="hero" id="hero">
-    <div class="hero-media">
-      <img
-        src="https://image.tmdb.org/t/p/original/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg"
-        alt="Game of Thrones"
-        class="hero-img"/>
-      <div class="hero-vignette"></div>
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image:url('https://image.tmdb.org/t/p/original/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://image.tmdb.org/t/p/original/5VTN0pR8gcqV3EPUHHfMGnJYspM.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://image.tmdb.org/t/p/original/2OMB0ynKlyIenMJWI2Dy9IiGLcE.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://image.tmdb.org/t/p/original/gX8SYlnL9ZznfZwEH4KJUePBFUM.jpg')"></div>
     </div>
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
-      <p class="hero-eyebrow">HBO · 2011 — 2019</p>
-      <h1 class="hero-heading">When you play the<br><span>Game of Thrones</span></h1>
-      <p class="hero-tagline">You win... or you die.</p>
-      <div class="hero-actions">
-        <a href="#characters" class="btn btn-primary">Meet the Characters</a>
-        <a href="#seasons" class="btn btn-ghost">All 8 Seasons</a>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>HBO Original Series · 2011 — 2019</span>
+        <span class="eyebrow-line"></span>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-n">8</span><span class="stat-l">Seasons</span></div>
-        <div class="stat-div"></div>
-        <div class="stat"><span class="stat-n">73</span><span class="stat-l">Episodes</span></div>
-        <div class="stat-div"></div>
-        <div class="stat"><span class="stat-n">59</span><span class="stat-l">Emmy Awards</span></div>
-        <div class="stat-div"></div>
-        <div class="stat"><span class="stat-n">9.2</span><span class="stat-l">IMDb Rating</span></div>
+      <h1 class="hero-title">
+        <span class="title-line" data-text="GAME">GAME</span>
+        <span class="title-of">OF</span>
+        <span class="title-line" data-text="THRONES">THRONES</span>
+      </h1>
+      <p class="hero-quote">"When you play the Game of Thrones,<br>you win — or you die."</p>
+      <div class="hero-cta">
+        <a href="#story" class="cta-btn">Enter Westeros</a>
+        <a href="#characters" class="cta-ghost">Meet the Cast</a>
       </div>
     </div>
-    <a href="#about" class="scroll-down">
-      <span>SCROLL</span>
-      <div class="scroll-line"></div>
+
+    <div class="hero-slides-nav">
+      <button class="slide-dot active" data-index="0"></button>
+      <button class="slide-dot" data-index="1"></button>
+      <button class="slide-dot" data-index="2"></button>
+      <button class="slide-dot" data-index="3"></button>
+    </div>
+
+    <div class="hero-stats-bar">
+      <div class="hstat"><span class="hstat-n">8</span><span class="hstat-l">Seasons</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n">73</span><span class="hstat-l">Episodes</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n">59</span><span class="hstat-l">Emmy Awards</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n">9.2</span><span class="hstat-l">IMDb Rating</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n">167M</span><span class="hstat-l">Viewers</span></div>
+    </div>
+
+    <a href="#story" class="hero-scroll">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
     </a>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img-wrap">
-          <img src="https://image.tmdb.org/t/p/w780/9PBKXBzsNMzaXbsUOhAwBL0WHHM.jpg" alt="Game of Thrones"/>
-          <div class="about-img-border"></div>
-        </div>
-        <div class="about-text">
-          <p class="label">About the Series</p>
-          <h2>Seven Kingdoms.<br/>One Iron Throne.</h2>
-          <p>Based on George R.R. Martin's bestselling series <em>A Song of Ice and Fire</em>, Game of Thrones is an epic tale of power, betrayal, and survival set in the fictional continents of Westeros and Essos.</p>
-          <p>Noble families wage war to claim the Iron Throne of the Seven Kingdoms, while an ancient supernatural threat rises beyond the great Wall of ice in the north — and a exiled princess across the sea builds an army to reclaim her family's legacy.</p>
-          <div class="about-meta">
-            <div class="meta-item"><span class="meta-label">Created by</span><span class="meta-val">David Benioff &amp; D.B. Weiss</span></div>
-            <div class="meta-item"><span class="meta-label">Network</span><span class="meta-val">HBO</span></div>
-            <div class="meta-item"><span class="meta-label">Premiered</span><span class="meta-val">April 17, 2011</span></div>
-            <div class="meta-item"><span class="meta-label">Finale</span><span class="meta-val">May 19, 2019</span></div>
-          </div>
+  <!-- ═══════════════════════════════════════════════
+       STORY — PARALLAX SPLIT
+  ═══════════════════════════════════════════════ -->
+  <section class="story" id="story">
+    <div class="story-parallax" id="storyParallax">
+      <img src="https://image.tmdb.org/t/p/w1280/9PBKXBzsNMzaXbsUOhAwBL0WHHM.jpg" alt="Westeros"/>
+    </div>
+    <div class="story-content">
+      <div class="story-text fade-up">
+        <span class="label">About the Series</span>
+        <h2>Seven Kingdoms.<br/>One Iron Throne.</h2>
+        <p>Based on George R.R. Martin's <em>A Song of Ice and Fire</em>, Game of Thrones is the defining television epic of a generation — a brutal, beautiful story of power, survival, and the human cost of ambition.</p>
+        <p>Nine noble families fight for control of the mythical lands of Westeros, while an ancient enemy awakens after millennia of slumber in the frozen north.</p>
+        <div class="story-facts">
+          <div class="fact"><span class="fact-val">2011</span><span class="fact-key">Premiered</span></div>
+          <div class="fact"><span class="fact-val">HBO</span><span class="fact-key">Network</span></div>
+          <div class="fact"><span class="fact-val">$15M</span><span class="fact-key">Per Episode</span></div>
+          <div class="fact"><span class="fact-val">#1</span><span class="fact-key">Most Pirated Show</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOUSES -->
+  <!-- ═══════════════════════════════════════════════
+       HOUSES — IMMERSIVE FULL WIDTH
+  ═══════════════════════════════════════════════ -->
   <section class="houses" id="houses">
-    <div class="container">
-      <p class="label center">The Great Houses</p>
-      <h2 class="center">Blood &amp; Lineage</h2>
-      <div class="houses-grid">
+    <div class="houses-header fade-up">
+      <span class="label">Great Houses of Westeros</span>
+      <h2>Blood &amp; Legacy</h2>
+    </div>
 
-        <div class="house-item">
-          <div class="house-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w500/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg" alt="House Stark"/>
-            <div class="house-color stark"></div>
-          </div>
-          <div class="house-info">
-            <h3>House Stark</h3>
-            <p class="house-motto">"Winter is Coming"</p>
-            <p>Wardens of the North, ruling from Winterfell for thousands of years. Their direwolf sigil is feared across Westeros.</p>
-            <div class="house-members">
-              <img src="https://image.tmdb.org/t/p/w92/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg" alt="Kit Harington" title="Kit Harington — Jon Snow"/>
-              <img src="https://image.tmdb.org/t/p/w92/x5o8cLZfEXMoZczTYWLrUo1P7UJ.jpg" alt="Maisie Williams" title="Maisie Williams — Arya Stark"/>
-              <img src="https://image.tmdb.org/t/p/w92/pWKOSpExYVMGVjGF4YRjZkGZq8H.jpg" alt="Sophie Turner" title="Sophie Turner — Sansa Stark"/>
+    <!-- STARK -->
+    <div class="house-panel" id="panel-stark">
+      <div class="house-panel-bg" style="background-image:url('https://image.tmdb.org/t/p/w1280/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg')"></div>
+      <div class="house-panel-overlay stark-overlay"></div>
+      <div class="house-panel-content">
+        <div class="house-sigil-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Shield_of_House_Stark.svg/200px-Shield_of_House_Stark.svg.png" alt="Stark Sigil" class="house-sigil-img" onerror="this.style.display='none'"/>
+          <div class="house-sigil-fallback">STARK</div>
+        </div>
+        <div class="house-panel-text">
+          <h3>House Stark</h3>
+          <p class="house-words">"Winter is Coming"</p>
+          <p class="house-desc">Lords of Winterfell, Wardens of the North. Their direwolf sigil has watched over the North for eight thousand years. Honour, duty and sacrifice define this ancient house.</p>
+          <div class="house-cast-row">
+            <div class="hc-member">
+              <img src="https://image.tmdb.org/t/p/w185/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg" alt="Kit Harington"/>
+              <span>Kit Harington</span>
+            </div>
+            <div class="hc-member">
+              <img src="https://image.tmdb.org/t/p/w185/x5o8cLZfEXMoZczTYWLrUo1P7UJ.jpg" alt="Maisie Williams"/>
+              <span>Maisie Williams</span>
+            </div>
+            <div class="hc-member">
+              <img src="https://image.tmdb.org/t/p/w185/pWKOSpExYVMGVjGF4YRjZkGZq8H.jpg" alt="Sophie Turner"/>
+              <span>Sophie Turner</span>
+            </div>
+            <div class="hc-member">
+              <img src="https://image.tmdb.org/t/p/w185/2RBPvNnkDKjJe5bJQPzSrEIAMXq.jpg" alt="Sean Bean"/>
+              <span>Sean Bean</span>
             </div>
           </div>
+          <span class="house-location">The North · Winterfell</span>
         </div>
+      </div>
+    </div>
 
-        <div class="house-item">
-          <div class="house-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w500/9bPQpBd3A7bngBjXCBXBCvnf9F0.jpg" alt="House Lannister"/>
-            <div class="house-color lannister"></div>
-          </div>
-          <div class="house-info">
-            <h3>House Lannister</h3>
-            <p class="house-motto">"Hear Me Roar"</p>
-            <p>The wealthiest house in Westeros, ruling from Casterly Rock. Their gold funds kingdoms and their cunning topples thrones.</p>
-            <div class="house-members">
-              <img src="https://image.tmdb.org/t/p/w92/9bPQpBd3A7bngBjXCBXBCvnf9F0.jpg" alt="Peter Dinklage" title="Peter Dinklage — Tyrion Lannister"/>
-              <img src="https://image.tmdb.org/t/p/w92/3Sg5gW6SiJBQJEWxfSGJxkxGBxA.jpg" alt="Lena Headey" title="Lena Headey — Cersei Lannister"/>
-              <img src="https://image.tmdb.org/t/p/w92/gVjKbAJBCCCBqi2tWNtmfDBhSpc.jpg" alt="Nikolaj Coster-Waldau" title="Nikolaj Coster-Waldau — Jaime Lannister"/>
+    <!-- LANNISTER -->
+    <div class="house-panel reverse" id="panel-lannister">
+      <div class="house-panel-bg" style="background-image:url('https://image.tmdb.org/t/p/w1280/gX8SYlnL9ZznfZwEH4KJUePBFUM.jpg')"></div>
+      <div class="house-panel-overlay lannister-overlay"></div>
+      <div class="house-panel-content">
+        <div class="house-sigil-wrap">
+          <div class="house-sigil-fallback gold">LANNISTER</div>
+        </div>
+        <div class="house-panel-text">
+          <h3>House Lannister</h3>
+          <p class="house-words">"A Lannister Always Pays His Debts"</p>
+          <p class="house-desc">The wealthiest and most powerful house in Westeros. From Casterly Rock, their gold fills the realm's coffers and their cunning fills the small council. Ruthless, elegant, deadly.</p>
+          <div class="house-cast-row">
+            <div class="hc-member">
+              <img src="https://image.tmdb.org/t/p/w185/3Sg5gW6SiJBQJEWxfSGJxkxGBxA.jpg" alt="Lena Headey"/>
+              <span>Lena Headey</span>
+            </div>
+            <div class="hc-member">
+              <img src="https://image.tmdb.org/t/p/w185/9bPQpBd3A7bngBjXCBXBCvnf9F0.jpg" alt="Peter Dinklage"/>
+              <span>Peter Dinklage</span>
+            </div>
+            <div class="hc-member">
+              <img src="https://image.tmdb.org/t/p/w185/gVjKbAJBCCCBqi2tWNtmfDBhSpc.jpg" alt="Nikolaj Coster-Waldau"/>
+              <span>Nikolaj C-W</span>
             </div>
           </div>
+          <span class="house-location">The Westerlands · Casterly Rock</span>
         </div>
+      </div>
+    </div>
 
-        <div class="house-item">
-          <div class="house-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w500/mn0JnfKsFATPBCvTHxUvVVxAMem.jpg" alt="House Targaryen"/>
-            <div class="house-color targaryen"></div>
-          </div>
-          <div class="house-info">
-            <h3>House Targaryen</h3>
-            <p class="house-motto">"Fire and Blood"</p>
-            <p>Ancient dragonlords of Valyria who conquered Westeros three centuries ago. Their bond with dragons is unmatched in history.</p>
-            <div class="house-members">
-              <img src="https://image.tmdb.org/t/p/w92/mn0JnfKsFATPBCvTHxUvVVxAMem.jpg" alt="Emilia Clarke" title="Emilia Clarke — Daenerys Targaryen"/>
+    <!-- TARGARYEN -->
+    <div class="house-panel" id="panel-targaryen">
+      <div class="house-panel-bg" style="background-image:url('https://image.tmdb.org/t/p/w1280/5VTN0pR8gcqV3EPUHHfMGnJYspM.jpg')"></div>
+      <div class="house-panel-overlay targaryen-overlay"></div>
+      <div class="house-panel-content">
+        <div class="house-sigil-wrap">
+          <div class="house-sigil-fallback red">TARGARYEN</div>
+        </div>
+        <div class="house-panel-text">
+          <h3>House Targaryen</h3>
+          <p class="house-words">"Fire and Blood"</p>
+          <p class="house-desc">Ancient dragonlords of lost Valyria who conquered all of Westeros three centuries ago. Their bond with dragons is legend. The last of their line, Daenerys Targaryen, rises from exile to reclaim her birthright.</p>
+          <div class="house-cast-row">
+            <div class="hc-member">
+              <img src="https://image.tmdb.org/t/p/w185/mn0JnfKsFATPBCvTHxUvVVxAMem.jpg" alt="Emilia Clarke"/>
+              <span>Emilia Clarke</span>
             </div>
           </div>
+          <span class="house-location">Dragonstone · King's Landing</span>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- CHARACTERS -->
+  <!-- ═══════════════════════════════════════════════
+       CHARACTERS — MAGAZINE GRID
+  ═══════════════════════════════════════════════ -->
   <section class="characters" id="characters">
     <div class="container">
-      <p class="label center">The Cast</p>
-      <h2 class="center">Faces of Westeros</h2>
-      <div class="chars-grid">
-
-        <div class="char-card">
-          <div class="char-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w342/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg"
-                 alt="Kit Harington as Jon Snow"
-                 onerror="this.src='https://via.placeholder.com/342x480/1a1a1a/888?text=Jon+Snow'"/>
-            <div class="char-gradient"></div>
-            <div class="char-hover-info">
-              <p>King in the North. Last of the Targaryens. Defender of the realm against the Night King.</p>
-            </div>
-          </div>
-          <div class="char-meta">
-            <h3>Jon Snow</h3>
-            <p class="char-actor">Kit Harington</p>
-          </div>
-        </div>
-
-        <div class="char-card">
-          <div class="char-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w342/mn0JnfKsFATPBCvTHxUvVVxAMem.jpg"
-                 alt="Emilia Clarke as Daenerys"
-                 onerror="this.src='https://via.placeholder.com/342x480/1a1a1a/888?text=Daenerys'"/>
-            <div class="char-gradient"></div>
-            <div class="char-hover-info">
-              <p>Mother of Dragons. Breaker of Chains. Last heir to the Targaryen dynasty.</p>
-            </div>
-          </div>
-          <div class="char-meta">
-            <h3>Daenerys Targaryen</h3>
-            <p class="char-actor">Emilia Clarke</p>
-          </div>
-        </div>
-
-        <div class="char-card">
-          <div class="char-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w342/9bPQpBd3A7bngBjXCBXBCvnf9F0.jpg"
-                 alt="Peter Dinklage as Tyrion"
-                 onerror="this.src='https://via.placeholder.com/342x480/1a1a1a/888?text=Tyrion'"/>
-            <div class="char-gradient"></div>
-            <div class="char-hover-info">
-              <p>The Imp. Hand of the Queen. The most brilliant political mind in all of Westeros.</p>
-            </div>
-          </div>
-          <div class="char-meta">
-            <h3>Tyrion Lannister</h3>
-            <p class="char-actor">Peter Dinklage</p>
-          </div>
-        </div>
-
-        <div class="char-card">
-          <div class="char-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w342/x5o8cLZfEXMoZczTYWLrUo1P7UJ.jpg"
-                 alt="Maisie Williams as Arya"
-                 onerror="this.src='https://via.placeholder.com/342x480/1a1a1a/888?text=Arya'"/>
-            <div class="char-gradient"></div>
-            <div class="char-hover-info">
-              <p>No One. A girl trained by the Faceless Men to become the greatest assassin in Westeros.</p>
-            </div>
-          </div>
-          <div class="char-meta">
-            <h3>Arya Stark</h3>
-            <p class="char-actor">Maisie Williams</p>
-          </div>
-        </div>
-
-        <div class="char-card">
-          <div class="char-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w342/3Sg5gW6SiJBQJEWxfSGJxkxGBxA.jpg"
-                 alt="Lena Headey as Cersei"
-                 onerror="this.src='https://via.placeholder.com/342x480/1a1a1a/888?text=Cersei'"/>
-            <div class="char-gradient"></div>
-            <div class="char-hover-info">
-              <p>Queen of the Seven Kingdoms. She loves her children and her wine — and will destroy anyone who threatens either.</p>
-            </div>
-          </div>
-          <div class="char-meta">
-            <h3>Cersei Lannister</h3>
-            <p class="char-actor">Lena Headey</p>
-          </div>
-        </div>
-
-        <div class="char-card">
-          <div class="char-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w342/2RBPvNnkDKjJe5bJQPzSrEIAMXq.jpg"
-                 alt="Sean Bean as Ned Stark"
-                 onerror="this.src='https://via.placeholder.com/342x480/1a1a1a/888?text=Ned+Stark'"/>
-            <div class="char-gradient"></div>
-            <div class="char-hover-info">
-              <p>Lord of Winterfell. The most honourable man in Westeros — and the first to pay the price for it.</p>
-            </div>
-          </div>
-          <div class="char-meta">
-            <h3>Eddard Stark</h3>
-            <p class="char-actor">Sean Bean</p>
-          </div>
-        </div>
-
-        <div class="char-card">
-          <div class="char-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w342/gVjKbAJBCCCBqi2tWNtmfDBhSpc.jpg"
-                 alt="Nikolaj Coster-Waldau as Jaime"
-                 onerror="this.src='https://via.placeholder.com/342x480/1a1a1a/888?text=Jaime'"/>
-            <div class="char-gradient"></div>
-            <div class="char-hover-info">
-              <p>The Kingslayer. Labeled a traitor, he killed the Mad King to save a million lives.</p>
-            </div>
-          </div>
-          <div class="char-meta">
-            <h3>Jaime Lannister</h3>
-            <p class="char-actor">Nikolaj Coster-Waldau</p>
-          </div>
-        </div>
-
-        <div class="char-card">
-          <div class="char-img-wrap">
-            <img src="https://image.tmdb.org/t/p/w342/pWKOSpExYVMGVjGF4YRjZkGZq8H.jpg"
-                 alt="Sophie Turner as Sansa"
-                 onerror="this.src='https://via.placeholder.com/342x480/1a1a1a/888?text=Sansa'"/>
-            <div class="char-gradient"></div>
-            <div class="char-hover-info">
-              <p>Queen in the North. Survived kings, monsters and war to become Westeros's shrewdest ruler.</p>
-            </div>
-          </div>
-          <div class="char-meta">
-            <h3>Sansa Stark</h3>
-            <p class="char-actor">Sophie Turner</p>
-          </div>
-        </div>
-
+      <div class="section-header fade-up">
+        <span class="label">The Cast</span>
+        <h2>Faces of Westeros</h2>
+        <p class="section-sub">The actors who brought George R.R. Martin's world to life</p>
       </div>
+    </div>
+    <div class="chars-magazine">
+
+      <div class="char-feature">
+        <div class="char-feature-img">
+          <img src="https://image.tmdb.org/t/p/w780/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg" alt="Kit Harington as Jon Snow"/>
+          <div class="char-feature-overlay">
+            <div class="char-feature-text">
+              <h3>Jon Snow</h3>
+              <p class="char-actor">Kit Harington</p>
+              <p class="char-role">King in the North</p>
+              <p class="char-bio">Bastard son of Ned Stark, raised at Winterfell. Lord Commander of the Night's Watch. Azor Ahai reborn. The last hope against the Night King.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="char-grid-right">
+        <div class="char-thumb">
+          <img src="https://image.tmdb.org/t/p/w342/mn0JnfKsFATPBCvTHxUvVVxAMem.jpg" alt="Emilia Clarke"/>
+          <div class="char-thumb-overlay">
+            <h4>Daenerys Targaryen</h4>
+            <p>Emilia Clarke</p>
+            <span>Mother of Dragons</span>
+          </div>
+        </div>
+        <div class="char-thumb">
+          <img src="https://image.tmdb.org/t/p/w342/9bPQpBd3A7bngBjXCBXBCvnf9F0.jpg" alt="Peter Dinklage"/>
+          <div class="char-thumb-overlay">
+            <h4>Tyrion Lannister</h4>
+            <p>Peter Dinklage</p>
+            <span>The Imp</span>
+          </div>
+        </div>
+        <div class="char-thumb">
+          <img src="https://image.tmdb.org/t/p/w342/x5o8cLZfEXMoZczTYWLrUo1P7UJ.jpg" alt="Maisie Williams"/>
+          <div class="char-thumb-overlay">
+            <h4>Arya Stark</h4>
+            <p>Maisie Williams</p>
+            <span>No One</span>
+          </div>
+        </div>
+        <div class="char-thumb">
+          <img src="https://image.tmdb.org/t/p/w342/3Sg5gW6SiJBQJEWxfSGJxkxGBxA.jpg" alt="Lena Headey"/>
+          <div class="char-thumb-overlay">
+            <h4>Cersei Lannister</h4>
+            <p>Lena Headey</p>
+            <span>Queen of Westeros</span>
+          </div>
+        </div>
+        <div class="char-thumb">
+          <img src="https://image.tmdb.org/t/p/w342/2RBPvNnkDKjJe5bJQPzSrEIAMXq.jpg" alt="Sean Bean"/>
+          <div class="char-thumb-overlay">
+            <h4>Eddard Stark</h4>
+            <p>Sean Bean</p>
+            <span>Lord of Winterfell</span>
+          </div>
+        </div>
+        <div class="char-thumb">
+          <img src="https://image.tmdb.org/t/p/w342/gVjKbAJBCCCBqi2tWNtmfDBhSpc.jpg" alt="Nikolaj Coster-Waldau"/>
+          <div class="char-thumb-overlay">
+            <h4>Jaime Lannister</h4>
+            <p>Nikolaj C-Waldau</p>
+            <span>The Kingslayer</span>
+          </div>
+        </div>
+        <div class="char-thumb">
+          <img src="https://image.tmdb.org/t/p/w342/pWKOSpExYVMGVjGF4YRjZkGZq8H.jpg" alt="Sophie Turner"/>
+          <div class="char-thumb-overlay">
+            <h4>Sansa Stark</h4>
+            <p>Sophie Turner</p>
+            <span>Queen in the North</span>
+          </div>
+        </div>
+        <div class="char-thumb">
+          <img src="https://image.tmdb.org/t/p/w342/hMXMBPwR5zGwVCTNmDvJJBIJFnb.jpg" alt="Iwan Rheon"/>
+          <div class="char-thumb-overlay">
+            <h4>Ramsay Bolton</h4>
+            <p>Iwan Rheon</p>
+            <span>Lord of Winterfell</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- SEASONS -->
+  <!-- ═══════════════════════════════════════════════
+       QUOTE DIVIDER
+  ═══════════════════════════════════════════════ -->
+  <div class="quote-divider">
+    <div class="qd-line"></div>
+    <blockquote class="qd-quote fade-up">
+      <p>"The things I do for love."</p>
+      <cite>— Jaime Lannister</cite>
+    </blockquote>
+    <div class="qd-line"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SEASONS — HORIZONTAL SCROLL TIMELINE
+  ═══════════════════════════════════════════════ -->
   <section class="seasons" id="seasons">
     <div class="container">
-      <p class="label center">2011 — 2019</p>
-      <h2 class="center">Eight Seasons</h2>
-      <div class="seasons-list">
-        <div class="season-row">
-          <div class="season-num">01</div>
-          <div class="season-body">
-            <div class="season-head">
-              <h4>Season One <span>2011 · 10 Episodes</span></h4>
-              <p>The game begins. Lord Eddard Stark is summoned to serve as Hand of the King. In King's Landing, secrets and betrayal lurk behind every smile.</p>
-            </div>
-          </div>
+      <div class="section-header fade-up">
+        <span class="label">2011 — 2019</span>
+        <h2>Eight Seasons</h2>
+        <p class="section-sub">The complete journey from Winterfell to King's Landing</p>
+      </div>
+    </div>
+    <div class="seasons-track-wrap">
+      <div class="seasons-track" id="seasonsTrack">
+
+        <div class="season-card">
           <div class="season-img">
-            <img src="https://image.tmdb.org/t/p/w300/zwaj4egrhnXOBIit1tLlSHNQy4.jpg" alt="Season 1"/>
+            <img src="https://image.tmdb.org/t/p/w342/zwaj4egrhnXOBIit1tLlSHNQy4.jpg" alt="Season 1"/>
+            <div class="season-img-overlay"></div>
+          </div>
+          <div class="season-body">
+            <div class="season-tag">S01 · 2011</div>
+            <h4>Winter is Coming</h4>
+            <p>The game begins. Eddard Stark travels south — and the realm is changed forever.</p>
+            <span class="season-episodes">10 Episodes</span>
           </div>
         </div>
-        <div class="season-row">
-          <div class="season-num">02</div>
-          <div class="season-body">
-            <div class="season-head">
-              <h4>Season Two <span>2012 · 10 Episodes</span></h4>
-              <p>Five kings war for the throne. Tyrion arrives at King's Landing. The Battle of the Blackwater changes the fate of the realm.</p>
-            </div>
-          </div>
+
+        <div class="season-card">
           <div class="season-img">
-            <img src="https://image.tmdb.org/t/p/w300/5tuhCkqPOT20XPwwi9NhFnC4eMJ.jpg" alt="Season 2"/>
+            <img src="https://image.tmdb.org/t/p/w342/5tuhCkqPOT20XPwwi9NhFnC4eMJ.jpg" alt="Season 2"/>
+            <div class="season-img-overlay"></div>
+          </div>
+          <div class="season-body">
+            <div class="season-tag">S02 · 2012</div>
+            <h4>The War of Five Kings</h4>
+            <p>Five kings claim the throne. The Battle of the Blackwater lights up the bay.</p>
+            <span class="season-episodes">10 Episodes</span>
           </div>
         </div>
-        <div class="season-row">
-          <div class="season-num">03</div>
-          <div class="season-body">
-            <div class="season-head">
-              <h4>Season Three <span>2013 · 10 Episodes</span></h4>
-              <p>The Red Wedding. The most devastating episode in television history. No house is safe from betrayal.</p>
-            </div>
-          </div>
+
+        <div class="season-card">
           <div class="season-img">
-            <img src="https://image.tmdb.org/t/p/w300/7d3vRgbmnrFqbUouTm3L68wxLFn.jpg" alt="Season 3"/>
+            <img src="https://image.tmdb.org/t/p/w342/7d3vRgbmnrFqbUouTm3L68wxLFn.jpg" alt="Season 3"/>
+            <div class="season-img-overlay"></div>
+          </div>
+          <div class="season-body">
+            <div class="season-tag">S03 · 2013</div>
+            <h4>The Red Wedding</h4>
+            <p>The most shocking hour in television history. The North remembers.</p>
+            <span class="season-episodes">10 Episodes</span>
           </div>
         </div>
-        <div class="season-row">
-          <div class="season-num">04</div>
-          <div class="season-body">
-            <div class="season-head">
-              <h4>Season Four <span>2014 · 10 Episodes</span></h4>
-              <p>The Purple Wedding. Tyrion stands trial. Jon Snow defends the Wall from a massive wildling army.</p>
-            </div>
-          </div>
+
+        <div class="season-card">
           <div class="season-img">
-            <img src="https://image.tmdb.org/t/p/w300/dniQ7zEM6MJkMFr7pHKBXZ4CDBH.jpg" alt="Season 4"/>
+            <img src="https://image.tmdb.org/t/p/w342/dniQ7zEM6MJkMFr7pHKBXZ4CDBH.jpg" alt="Season 4"/>
+            <div class="season-img-overlay"></div>
+          </div>
+          <div class="season-body">
+            <div class="season-tag">S04 · 2014</div>
+            <h4>The Lion and the Rose</h4>
+            <p>The Purple Wedding. Tyrion on trial. Jon Snow defends the Wall.</p>
+            <span class="season-episodes">10 Episodes</span>
           </div>
         </div>
-        <div class="season-row">
-          <div class="season-num">05</div>
-          <div class="season-body">
-            <div class="season-head">
-              <h4>Season Five <span>2015 · 10 Episodes</span></h4>
-              <p>Hardhome. The White Walkers arrive in force. Jon Snow falls at Castle Black. Daenerys struggles in Meereen.</p>
-            </div>
-          </div>
+
+        <div class="season-card">
           <div class="season-img">
-            <img src="https://image.tmdb.org/t/p/w300/527BgSBTJ0ztBMQOxCfOIJfU2yX.jpg" alt="Season 5"/>
+            <img src="https://image.tmdb.org/t/p/w342/527BgSBTJ0ztBMQOxCfOIJfU2yX.jpg" alt="Season 5"/>
+            <div class="season-img-overlay"></div>
+          </div>
+          <div class="season-body">
+            <div class="season-tag">S05 · 2015</div>
+            <h4>Hardhome</h4>
+            <p>The White Walkers strike at Hardhome. Jon Snow falls at Castle Black.</p>
+            <span class="season-episodes">10 Episodes</span>
           </div>
         </div>
-        <div class="season-row">
-          <div class="season-num">06</div>
-          <div class="season-body">
-            <div class="season-head">
-              <h4>Season Six <span>2016 · 10 Episodes</span></h4>
-              <p>Jon Snow rises. The Battle of the Bastards. Cersei burns the Sept of Baelor. Daenerys sails for Westeros.</p>
-            </div>
-          </div>
+
+        <div class="season-card">
           <div class="season-img">
-            <img src="https://image.tmdb.org/t/p/w300/zvX8xivDGEfMzZX2OWkXFD1pZYn.jpg" alt="Season 6"/>
+            <img src="https://image.tmdb.org/t/p/w342/zvX8xivDGEfMzZX2OWkXFD1pZYn.jpg" alt="Season 6"/>
+            <div class="season-img-overlay"></div>
+          </div>
+          <div class="season-body">
+            <div class="season-tag">S06 · 2016</div>
+            <h4>Battle of the Bastards</h4>
+            <p>Jon rises. Cersei burns the Sept. Daenerys sails for Westeros.</p>
+            <span class="season-episodes">10 Episodes</span>
           </div>
         </div>
-        <div class="season-row">
-          <div class="season-num">07</div>
-          <div class="season-body">
-            <div class="season-head">
-              <h4>Season Seven <span>2017 · 7 Episodes</span></h4>
-              <p>Daenerys arrives in Westeros. Jon and Daenerys meet. The Wall falls. Winter has finally come.</p>
-            </div>
-          </div>
+
+        <div class="season-card">
           <div class="season-img">
-            <img src="https://image.tmdb.org/t/p/w300/3MSRFK3BVo5VRKA3UXFMRnhMZEa.jpg" alt="Season 7"/>
+            <img src="https://image.tmdb.org/t/p/w342/3MSRFK3BVo5VRKA3UXFMRnhMZEa.jpg" alt="Season 7"/>
+            <div class="season-img-overlay"></div>
+          </div>
+          <div class="season-body">
+            <div class="season-tag">S07 · 2017</div>
+            <h4>The Dragon and the Wolf</h4>
+            <p>Jon and Daenerys meet. The Wall falls. Winter has finally come to Westeros.</p>
+            <span class="season-episodes">7 Episodes</span>
           </div>
         </div>
-        <div class="season-row">
-          <div class="season-num">08</div>
-          <div class="season-body">
-            <div class="season-head">
-              <h4>Season Eight <span>2019 · 6 Episodes</span></h4>
-              <p>The Long Night. The Battle of King's Landing. The Iron Throne's final fate is decided.</p>
-            </div>
-          </div>
+
+        <div class="season-card">
           <div class="season-img">
-            <img src="https://image.tmdb.org/t/p/w300/2oMBnGXb76Q4aaJrBQQJFkdBf5R.jpg" alt="Season 8"/>
+            <img src="https://image.tmdb.org/t/p/w342/2oMBnGXb76Q4aaJrBQQJFkdBf5R.jpg" alt="Season 8"/>
+            <div class="season-img-overlay"></div>
+          </div>
+          <div class="season-body">
+            <div class="season-tag">S08 · 2019</div>
+            <h4>The Long Night</h4>
+            <p>The final battle against the dead. The Iron Throne's fate — decided forever.</p>
+            <span class="season-episodes">6 Episodes</span>
           </div>
         </div>
+
+      </div>
+      <div class="seasons-arrows">
+        <button class="s-arrow" id="sPrev">&#8592;</button>
+        <button class="s-arrow" id="sNext">&#8594;</button>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="gallery" id="gallery">
+  <!-- ═══════════════════════════════════════════════
+       WORLD — FULL BLEED GALLERY
+  ═══════════════════════════════════════════════ -->
+  <section class="world" id="world">
     <div class="container">
-      <p class="label center">The World</p>
-      <h2 class="center">Locations of Westeros</h2>
+      <div class="section-header fade-up">
+        <span class="label">The Known World</span>
+        <h2>Locations of Westeros</h2>
+      </div>
     </div>
-    <div class="gallery-full">
-      <div class="gallery-item large">
+    <div class="world-grid">
+      <div class="world-item wi-tall">
         <img src="https://image.tmdb.org/t/p/w1280/2OMB0ynKlyIenMJWI2Dy9IiGLcE.jpg" alt="The Wall"/>
-        <div class="gallery-caption"><h4>The Wall</h4><p>The North · Castle Black</p></div>
+        <div class="wi-caption"><h4>The Wall</h4><p>Castle Black · The North</p></div>
       </div>
-      <div class="gallery-item">
+      <div class="world-item">
         <img src="https://image.tmdb.org/t/p/w780/5VTN0pR8gcqV3EPUHHfMGnJYspM.jpg" alt="Dragonstone"/>
-        <div class="gallery-caption"><h4>Dragonstone</h4><p>Blackwater Bay</p></div>
+        <div class="wi-caption"><h4>Dragonstone</h4><p>Blackwater Bay</p></div>
       </div>
-      <div class="gallery-item">
+      <div class="world-item">
         <img src="https://image.tmdb.org/t/p/w780/gX8SYlnL9ZznfZwEH4KJUePBFUM.jpg" alt="King's Landing"/>
-        <div class="gallery-caption"><h4>King's Landing</h4><p>The Capital</p></div>
+        <div class="wi-caption"><h4>King's Landing</h4><p>The Capital of Westeros</p></div>
       </div>
-      <div class="gallery-item">
-        <img src="https://image.tmdb.org/t/p/w780/9PBKXBzsNMzaXbsUOhAwBL0WHHM.jpg" alt="Winterfell"/>
-        <div class="gallery-caption"><h4>Winterfell</h4><p>The North</p></div>
+      <div class="world-item wi-wide">
+        <img src="https://image.tmdb.org/t/p/w1280/9PBKXBzsNMzaXbsUOhAwBL0WHHM.jpg" alt="Winterfell"/>
+        <div class="wi-caption"><h4>Winterfell</h4><p>Heart of the North</p></div>
       </div>
-      <div class="gallery-item">
-        <img src="https://image.tmdb.org/t/p/w780/jMBpJFta59SKI4pEvKUCItrmRZI.jpg" alt="The Reach"/>
-        <div class="gallery-caption"><h4>The Reach</h4><p>Highgarden</p></div>
-      </div>
-      <div class="gallery-item large">
-        <img src="https://image.tmdb.org/t/p/w1280/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg" alt="Beyond the Wall"/>
-        <div class="gallery-caption"><h4>Beyond the Wall</h4><p>The Frozen North</p></div>
+      <div class="world-item">
+        <img src="https://image.tmdb.org/t/p/w780/jMBpJFta59SKI4pEvKUCItrmRZI.jpg" alt="Highgarden"/>
+        <div class="wi-caption"><h4>Highgarden</h4><p>The Reach</p></div>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE BANNER -->
-  <section class="quote-banner">
-    <div class="container">
-      <blockquote>
-        <p>"When you play the game of thrones, you win or you die.<br>There is no middle ground."</p>
-        <cite>— Cersei Lannister, Season 1</cite>
-      </blockquote>
+  <!-- ═══════════════════════════════════════════════
+       FINAL QUOTE
+  ═══════════════════════════════════════════════ -->
+  <section class="final-quote">
+    <div class="fq-bg" style="background-image:url('https://image.tmdb.org/t/p/w1280/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg')"></div>
+    <div class="fq-overlay"></div>
+    <div class="fq-content fade-up">
+      <p class="fq-text">"When you play the game of thrones, you win or you die.<br>There is no middle ground."</p>
+      <p class="fq-cite">— Cersei Lannister, Season 1, Episode 7</p>
+      <a href="#hero" class="cta-btn mt">Back to the North</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Game_of_Thrones_2011_logo.svg/300px-Game_of_Thrones_2011_logo.svg.png" alt="Game of Thrones" class="footer-logo"/>
-          <p>An HBO Original Series.<br/>Based on the novels by George R.R. Martin.</p>
-        </div>
-        <div class="footer-links">
-          <h5>Explore</h5>
-          <a href="#about">The Show</a>
+    <div class="footer-inner container">
+      <div class="footer-top">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Game_of_Thrones_2011_logo.svg/300px-Game_of_Thrones_2011_logo.svg.png" alt="GOT" class="footer-logo"/>
+        <nav class="footer-nav">
+          <a href="#story">The Story</a>
           <a href="#houses">Houses</a>
           <a href="#characters">Characters</a>
           <a href="#seasons">Seasons</a>
-          <a href="#gallery">Gallery</a>
-        </div>
-        <div class="footer-links">
-          <h5>Houses</h5>
-          <a href="#houses">House Stark</a>
-          <a href="#houses">House Lannister</a>
-          <a href="#houses">House Targaryen</a>
-          <a href="#houses">House Baratheon</a>
-          <a href="#houses">House Greyjoy</a>
-        </div>
+          <a href="#world">The World</a>
+        </nav>
       </div>
+      <div class="footer-divider"></div>
       <div class="footer-bottom">
-        <p>© 2024 Game of Thrones Fan Site. Game of Thrones is a trademark of HBO. All rights reserved.</p>
+        <p>Game of Thrones is a trademark of HBO. All images and characters are property of HBO / George R.R. Martin.</p>
+        <p>This is a fan-made tribute site. No copyright infringement intended.</p>
       </div>
     </div>
   </footer>
